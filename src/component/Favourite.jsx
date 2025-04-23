@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 export default function Favourite() {
   const [readingList, setReadingList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/readingList")
+    fetch("https://book-app-30xv.onrender.com/readingList")
       .then((r) => r.json())
       .then((response) => setReadingList(response));
   }, []);
 
   const toggleReadStatus = (book) => {
-    fetch(`http://localhost:3000/readingList/${book.id}`, {
+    fetch(`https://book-app-30xv.onrender.com/readingList/${book.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
@@ -26,13 +27,29 @@ export default function Favourite() {
   };
 
   const deleteBook = (id) => {
-    fetch(`http://localhost:3000/readingList/${id}`, {
-      method: "DELETE"
-    })
-      .then(() => {
-        setReadingList((prevList) => prevList.filter((book) => book.id !== id));
-      });
-  };
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://book-app-30xv.onrender.com/readingList/${id}`, {
+          method: "DELETE"
+        }).then(() => {
+          setReadingList((prevList) => prevList.filter((book) => book.id !== id));
+          Swal.fire(
+            'Deleted!',
+            'The book has been removed from your favourites.',
+            'success'
+          );
+        });
+    }
+  });
+};
 
   return (
     <div className="p-6">

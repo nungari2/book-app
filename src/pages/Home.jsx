@@ -7,7 +7,7 @@ export default function Home() {
   const [readingList, setReadingList] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/Books")
+    fetch("https://book-app-30xv.onrender.com/Books")
       .then((r) => r.json())
       .then((response) => setBooks(response));
   }, []);
@@ -31,7 +31,7 @@ export default function Home() {
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:3000/readingList")
+        fetch("https://book-app-30xv.onrender.com/readingList")
           .then((r) => r.json())
           .then((readingList) => {
             const alreadyInList = readingList.find((b) => b.id === book.id);
@@ -44,7 +44,7 @@ export default function Home() {
               return;
             }
 
-            fetch("http://localhost:3000/readingList", {
+            fetch("https://book-app-30xv.onrender.com/readingList", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
