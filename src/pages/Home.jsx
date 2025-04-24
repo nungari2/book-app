@@ -68,10 +68,10 @@ export default function Home() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#8e735b] to-[#c2a58d] text-white font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-[#8e735b] to-[#c2a58d] text-white font-sans pt-16">
       
       <div className="grid grid-cols-1 md:grid-cols-2 bg-[#c2a58d] text-white">
-      <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden ">
      <div
       className="w-full h-full bg-cover bg-center"
       style={{
@@ -88,13 +88,7 @@ export default function Home() {
       A room without books is like a body without a soul.
     </h1>
     <div className="relative w-full max-w-md">
-      <input
-        type="text"
-        placeholder="Find Your Book"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full p-3 rounded-lg text-gray-900 placeholder-gray-500 hover:bg-blue-300"
-      />
+      <input type="text" placeholder="Find Your Book" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="w-full p-3 rounded-lg text-gray-900 placeholder-gray-500 hover:bg-blue-300" />
       <span className="absolute top-3 right-4 text-gray-500">🔍</span>
     </div>
   </div>
@@ -109,12 +103,7 @@ export default function Home() {
               <img src={book.image} alt={book.Title} className="h-64 w-full object-cover transform transition-transform duration-300 hover:scale-105" />
               <div className="p-3 flex-1 flex flex-col">
                 <h4 className="font-semibold text-lg mb-2">{book.Title}</h4>
-                <button
-                  onClick={() => addToReadingList(book)}
-                  className="mt-auto px-4 py-2 bg-[#4B2E2E] text-white rounded hover:bg-green-800 transition"
-                >
-                  Add to Favourite
-                </button>
+                <button onClick={() => addToReadingList(book)} className="mt-auto px-4 py-2 bg-[#4B2E2E] text-white rounded hover:bg-green-800 transition" > Add to Favourite </button>
               </div>
             </div>
           ))}
