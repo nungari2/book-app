@@ -53,9 +53,9 @@ export default function AddBook() {
       <div className="w-full max-w-2xl p-8 border border-gray-300 rounded-lg shadow-md bg-white">
         <h2 className="text-2xl font-bold mb-6 text-center">Add a New Book</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <input type="text" name="Title" placeholder="Title" value={formData.Title} onChange={handleChange} className="w-full border px-3 py-2 rounded" required/>
-          <input type="text" name="Author" placeholder="Author" value={formData.Author} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
-          <input type="text" name="Genre" placeholder="Genre" value={formData.Genre} onChange={handleChange} className="w-full border px-3 py-2 rounded" />
+          <input type="text" name="Title" placeholder="Title" value={formData.Title} onChange={handleChange} className="w-full border px-3 py-2 rounded hover:bg-blue-300" required/>
+          <input type="text" name="Author" placeholder="Author" value={formData.Author} onChange={handleChange} className="w-full border px-3 py-2 rounded hover:bg-blue-300" required />
+          <input type="text" name="Genre" placeholder="Genre" value={formData.Genre} onChange={handleChange} className="w-full border px-3 py-2 rounded hover:bg-blue-300" />
           <textarea name="About" placeholder="About the book..." value={formData.About} onChange={handleChange} className="w-full border px-3 py-2 rounded h-24" />
           <input type="text" name="image" placeholder="Image URL" value={formData.image} onChange={handleChange} className="w-full border px-3 py-2 rounded" required />
           <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full" >Add to Favourit </button>
